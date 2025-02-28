@@ -11,8 +11,11 @@ import java.util.List;
 @RequestMapping("/student")
 @CrossOrigin
 public class StudentController {
-    @Autowired
-    private StudentService studentService;
+    private final StudentService studentService;
+
+    public StudentController(StudentService studentService) {
+        this.studentService = studentService;
+    }
 
     @PostMapping("/add")
     public String add(@RequestBody Student student) {
